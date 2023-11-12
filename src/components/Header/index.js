@@ -10,6 +10,7 @@ import {GiHamburgerMenu} from 'react-icons/gi'
 import {FiLogOut} from 'react-icons/fi'
 
 import TabsList from '../TabsList'
+import LogoutPopup from '../LogoutPopup'
 import {ThemeContext} from '../../context/ThemeContext'
 
 import './index.css'
@@ -97,9 +98,22 @@ function Header(props) {
             </Popup>
           </MobileNavItem>
           <MobileNavItem>
-            <MobileLogoutButton type="button" onClick={onClickLogoutBtn}>
-              <FiLogOut size={24} color={darkMode ? '#fff' : '#0f0f0f'} />
-            </MobileLogoutButton>
+            <Popup
+              modal
+              className="popup-content logout-popup"
+              trigger={
+                <MobileLogoutButton type="button">
+                  <FiLogOut size={24} color={darkMode ? '#fff' : '#0f0f0f'} />
+                </MobileLogoutButton>
+              }
+            >
+              {close => (
+                <LogoutPopup
+                  close={close}
+                  onClickLogoutBtn={onClickLogoutBtn}
+                />
+              )}
+            </Popup>
           </MobileNavItem>
         </MobileNavList>
         <DesktopNavList>
@@ -119,13 +133,22 @@ function Header(props) {
             />
           </DesktopNavItem>
           <DesktopNavItem>
-            <DesktopLogoutButton
-              type="button"
-              onClick={onClickLogoutBtn}
-              darkMode={darkMode}
+            <Popup
+              modal
+              className="popup-content logout-popup"
+              trigger={
+                <DesktopLogoutButton type="button" darkMode={darkMode}>
+                  Logout
+                </DesktopLogoutButton>
+              }
             >
-              Logout
-            </DesktopLogoutButton>
+              {close => (
+                <LogoutPopup
+                  close={close}
+                  onClickLogoutBtn={onClickLogoutBtn}
+                />
+              )}
+            </Popup>
           </DesktopNavItem>
         </DesktopNavList>
       </NavContent>

@@ -1,0 +1,11 @@
+.tab-link {
+  width: 150px;
+  height: 50px;
+  margin: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  text-decoration: none;
+  color: inherit;
+}

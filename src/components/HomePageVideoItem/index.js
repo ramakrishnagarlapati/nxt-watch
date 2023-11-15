@@ -1,6 +1,7 @@
 import {Link} from 'react-router-dom'
 import {useContext} from 'react'
 import {BsDot} from 'react-icons/bs'
+import {formatDistanceToNow} from 'date-fns'
 
 import {ThemeContext} from '../../context/ThemeContext'
 
@@ -13,6 +14,7 @@ import {
   VideoDetailsContainer,
   VideoDetails,
   VideoTitle,
+  VideoDetailChannelName,
   VideoDetail,
 } from './styledComponents'
 
@@ -26,7 +28,7 @@ function HomePageVideoItem(params) {
     channel,
     publishedAt,
     thumbnailUrl,
-    viewsCount,
+    viewCount,
   } = videoItemDetails
   return (
     <VideoItem>
@@ -39,12 +41,19 @@ function HomePageVideoItem(params) {
           />
           <VideoDetailsContainer>
             <VideoTitle darkMode={darkMode}>{title}</VideoTitle>
+            <VideoDetailChannelName darkMode={darkMode}>
+              {channel.name}
+            </VideoDetailChannelName>
             <VideoDetails>
-              <VideoDetail darkMode={darkMode}>{channel.name}</VideoDetail>
-              <BsDot color={darkMode ? '#a3a4a4' : '#475569'} />
-              <VideoDetail darkMode={darkMode}>{viewsCount} Views</VideoDetail>
-              <BsDot />
-              <VideoDetail darkMode={darkMode}>{publishedAt}</VideoDetail>
+              <VideoDetail darkMode={darkMode}>{viewCount} Views</VideoDetail>
+              <BsDot color="#64748b" />
+              <VideoDetail darkMode={darkMode}>
+                {formatDistanceToNow(new Date(publishedAt))
+                  .split(' ')
+                  .slice(1)
+                  .join(' ')}{' '}
+                ago
+              </VideoDetail>
             </VideoDetails>
           </VideoDetailsContainer>
         </VideoChannelImageAndDetailsWrapper>

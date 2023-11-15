@@ -56,6 +56,7 @@ export const HomeSearchInput = styled.input`
   flex-grow: 1;
   border: none;
   background-color: ${props => (props.darkMode ? '#181818' : '#f9f9f9')};
+  color: ${props => (props.darkMode ? '#f9f9f9' : '#181818')};
   padding: 8px 16px;
   font-size: 14px;
   outline: none;

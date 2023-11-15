@@ -30,6 +30,16 @@ export const VideoChannelProfileImage = styled.img`
 
 export const VideoDetailsContainer = styled.div``
 
+export const VideoDetailChannelName = styled.p`
+  font-size: 12px;
+  font-weight: 500;
+  color: ${props => (props.darkMode ? '#a3a4a4' : '#4f4f4f')};
+
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+  }
+`
+
 export const VideoDetails = styled.div`
   margin-top: 10px;
   display: flex;
@@ -37,19 +47,14 @@ export const VideoDetails = styled.div`
   align-items: center;
 `
 
-export const VideoDetail = styled.p`
-  font-size: 12px;
-  color: ${props => (props.darkMode ? '#a3a4a4' : '#212121')};
-
-  @media screen and (min-width: 768px) {
-    font-size: 14px;
-  }
-`
+export const VideoDetail = styled(VideoDetailChannelName)``
 
 export const VideoTitle = styled.p`
   font-size: 14px;
   line-height: 1.5;
-  color: ${props => (props.darkMode ? '#cbd5e1' : '#475569')};
+  font-weight: 500;
+  color: ${props => (props.darkMode ? '#cbd5e1' : '#181818')};
+  margin-bottom: 10px;
 
   @media screen and (min-width: 768px) {
     font-size: 16px;

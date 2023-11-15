@@ -32,7 +32,7 @@ function FailureView(params) {
         Oops! Something Went Wrong
       </FailureViewHeading>
       <FailureViewDescription darkMode={darkMode}>
-        We are having some trouble processing your request. Please try again.
+        We are having some trouble to complete your request. Please try again.
       </FailureViewDescription>
       <FailureViewRetryButton type="button" onClick={onClickFailureRetryBtn}>
         Retry

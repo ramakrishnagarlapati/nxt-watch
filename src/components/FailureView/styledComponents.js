@@ -8,6 +8,7 @@ export const FailureViewContainer = styled.div`
   align-items: center;
   text-align: center;
   height: 100%;
+  padding: 0 20px;
 `
 
 export const FailureViewImage = styled.img`
@@ -32,7 +33,7 @@ export const FailureViewHeading = styled.h3`
 export const FailureViewDescription = styled.p`
   font-size: 14px;
   line-height: 1.5;
-  color: ${props => (props.darkMode ? '#616e7c' : ' #616e7c')};
+  color: ${props => (props.darkMode ? '#e2e8f0' : ' #616e7c')};
   @media screen and (min-width: 768px) {
     font-size: 16px;
   }

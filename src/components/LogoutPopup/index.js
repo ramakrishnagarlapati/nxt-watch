@@ -16,7 +16,7 @@ function LogoutPopup(params) {
   return (
     <LogoutPopupContainer darkMode={darkMode}>
       <LogoutPopupDescription darkMode={darkMode}>
-        Are you sure you want to logout?
+        Are you sure, you want to logout
       </LogoutPopupDescription>
       <ButtonsContainers>
         <LogoutPopupCancelButton

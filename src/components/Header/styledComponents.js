@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const NavHeader = styled.nav`
-  background-color: ${props => (props.darkMode ? '#231f20' : '#fff')};
+  background-color: ${props => (props.darkMode ? '#1f1e1e' : '#fff')};
   display: flex;
   justify-content: center;
   padding: 20px 0;
@@ -20,13 +20,6 @@ export const NavContent = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-`
-
-export const HomeLogoButton = styled.button`
-  border: none;
-  background-color: transparent;
-  outline: none;
-  cursor: pointer;
 `
 
 export const NavLogoImage = styled.img`

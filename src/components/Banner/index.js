@@ -14,13 +14,13 @@ function Banner(params) {
     showOrCloseBanner()
   }
   return (
-    <BannerContainer>
-      <BannerCloseButton onClick={onClickBannerCloseBtn}>
+    <BannerContainer data-testid="banner">
+      <BannerCloseButton onClick={onClickBannerCloseBtn} data-testid="close">
         <AiOutlineClose size={24} />
       </BannerCloseButton>
       <BannerLogoImage
         src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-        alt="banner logo"
+        alt="nxt watch logo"
       />
       <BannerDescription>
         Buy Nxt Watch Premium prepaid plans with UPI

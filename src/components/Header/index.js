@@ -1,5 +1,5 @@
 import {useContext} from 'react'
-import {withRouter} from 'react-router-dom'
+import {withRouter, Link} from 'react-router-dom'
 import Popup from 'reactjs-popup'
 import Cookies from 'js-cookie'
 import {FaMoon} from 'react-icons/fa'
@@ -17,7 +17,6 @@ import './index.css'
 import {
   NavHeader,
   NavContent,
-  HomeLogoButton,
   NavLogoImage,
   MobileNavList,
   MobileNavItem,
@@ -51,18 +50,23 @@ function Header(props) {
   return (
     <NavHeader darkMode={darkMode}>
       <NavContent>
-        <HomeLogoButton>
+        <Link to="/" className="home-link">
           <NavLogoImage
             src={
               darkMode
                 ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
                 : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
             }
+            alt="website logo"
           />
-        </HomeLogoButton>
+        </Link>
         <MobileNavList>
           <MobileNavItem>
-            <ThemeButton type="button" onClick={onClickThemeBtn}>
+            <ThemeButton
+              type="button"
+              onClick={onClickThemeBtn}
+              data-testid="theme"
+            >
               {darkMode ? (
                 <HiOutlineSun size={34} color="#fff" />
               ) : (
@@ -118,7 +122,11 @@ function Header(props) {
         </MobileNavList>
         <DesktopNavList>
           <DesktopNavItem>
-            <ThemeButton type="button" onClick={onClickThemeBtn}>
+            <ThemeButton
+              type="button"
+              onClick={onClickThemeBtn}
+              data-testid="theme"
+            >
               {darkMode ? (
                 <HiOutlineSun size={30} color="#fff" />
               ) : (
@@ -156,94 +164,3 @@ function Header(props) {
   )
 }
 export default withRouter(Header)
-
-/* <MobileTabsList>
-                    <MobileTabItem
-                      darkMode={darkMode}
-                      isActive={activeTab === 'home'}
-                    >
-                      <Link
-                        to="/"
-                        className="tab-link"
-                        onClick={() => onClickTabItem('home')}
-                      >
-                        <AiFillHome
-                          size={20}
-                          color={activeTab === 'home' ? '#ff0b37' : '#475569'}
-                        />
-                        <TabText
-                          isActive={activeTab === 'home'}
-                          darkMode={darkMode}
-                        >
-                          Home
-                        </TabText>
-                      </Link>
-                    </MobileTabItem>
-                    <MobileTabItem
-                      darkMode={darkMode}
-                      isActive={activeTab === 'trending'}
-                    >
-                      <Link
-                        to="/trending"
-                        className="tab-link"
-                        onClick={() => onClickTabItem('trending')}
-                      >
-                        <AiFillFire
-                          size={20}
-                          color={
-                            activeTab === 'trending' ? '#ff0b37' : '#475569'
-                          }
-                        />
-                        <TabText
-                          isActive={activeTab === 'trending'}
-                          darkMode={darkMode}
-                        >
-                          Trending
-                        </TabText>
-                      </Link>
-                    </MobileTabItem>
-                    <MobileTabItem
-                      darkMode={darkMode}
-                      isActive={activeTab === 'gaming'}
-                    >
-                      <Link
-                        to="/gaming"
-                        className="tab-link"
-                        onClick={() => onClickTabItem('gaming')}
-                      >
-                        <FaGamepad
-                          size={20}
-                          color={activeTab === 'gaming' ? '#ff0b37' : '#475569'}
-                        />
-                        <TabText
-                          isActive={activeTab === 'gaming'}
-                          darkMode={darkMode}
-                        >
-                          Gaming
-                        </TabText>
-                      </Link>
-                    </MobileTabItem>
-                    <MobileTabItem
-                      darkMode={darkMode}
-                      isActive={activeTab === 'savedVideos'}
-                    >
-                      <Link
-                        to="/saved-videos"
-                        className="tab-link"
-                        onClick={() => onClickTabItem('savedVideos')}
-                      >
-                        <BiListPlus
-                          size={20}
-                          color={
-                            activeTab === 'savedVideos' ? '#ff0b37' : '#475569'
-                          }
-                        />
-                        <TabText
-                          isActive={activeTab === 'savedVideos'}
-                          darkMode={darkMode}
-                        >
-                          Saved Videos
-                        </TabText>
-                      </Link>
-                    </MobileTabItem>
-                  </MobileTabsList> */

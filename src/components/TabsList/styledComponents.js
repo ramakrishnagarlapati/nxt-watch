@@ -23,7 +23,7 @@ export const TabText = styled.p`
   color: ${props => {
     const {isActive, darkMode} = props
     if (darkMode) {
-      return isActive ? '#f1f1f1' : '#64748b'
+      return isActive ? '#f1f1f1' : '#bfbfbf;'
     }
     return isActive ? '#181818' : '#475569'
   }};

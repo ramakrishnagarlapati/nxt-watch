@@ -1,0 +1,13 @@
+.video-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media screen and (min-width: 576px) {
+  .video-card-link {
+    flex-direction: row;
+  }
+}

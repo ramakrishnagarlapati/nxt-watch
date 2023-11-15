@@ -7,6 +7,9 @@ import Header from '../Header'
 import Sidebar from '../Sidebar'
 import Banner from '../Banner'
 import FailureView from '../FailureView'
+import apiStatusConstants from '../../utilities/apiStatusConstants'
+import convertResponseObjectToJsObject from '../../utilities/convertResponseObjectToJsObject'
+
 import HomePageVideoItem from '../HomePageVideoItem'
 import {ThemeContext} from '../../context/ThemeContext'
 
@@ -27,13 +30,6 @@ import {
   NoVideosDescription,
   NoVideosRetryButton,
 } from './styledComponents'
-
-const apiStatusConstants = {
-  initial: 'INITIAL',
-  success: 'SUCCESS',
-  failure: 'FAILURE',
-  inProgress: 'IN_PROGRESS',
-}
 
 function Home() {
   const theme = useContext(ThemeContext)
@@ -58,19 +54,7 @@ function Home() {
     )
     if (response.ok) {
       const data = await response.json()
-      setHomePageVideosList(
-        data.videos.map(item => ({
-          id: item.id,
-          channel: {
-            name: item.channel.name,
-            profileImageUrl: item.channel.profile_image_url,
-          },
-          publishedAt: item.published_at,
-          thumbnailUrl: item.thumbnail_url,
-          title: item.title,
-          viewsCount: item.view_count,
-        })),
-      )
+      setHomePageVideosList(convertResponseObjectToJsObject(data.videos))
       setApiStatus(apiStatusConstants.success)
     } else {
       setApiStatus(apiStatusConstants.failure)
@@ -114,8 +98,10 @@ function Home() {
           src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-search-results-img.png"
           alt="no videos"
         />
-        <NoVideosHeading>No Search results found</NoVideosHeading>
-        <NoVideosDescription>
+        <NoVideosHeading darkMode={darkMode}>
+          No Search results found
+        </NoVideosHeading>
+        <NoVideosDescription darkMode={darkMode}>
           Try different key words or remove search filter
         </NoVideosDescription>
         <NoVideosRetryButton type="button">Retry</NoVideosRetryButton>
@@ -159,6 +145,7 @@ function Home() {
                 darkMode={darkMode}
               />
               <HomeSearchButton
+                data-testid="searchButton"
                 type="button"
                 darkMode={darkMode}
                 onClick={onClickSearchBtn}

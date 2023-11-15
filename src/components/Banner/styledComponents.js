@@ -27,6 +27,8 @@ export const BannerDescription = styled.p`
   line-height: 1.5;
   font-size: 18px;
   max-width: 200px;
+  font-weight: 500;
+  color: #212121;
 
   @media screen and (min-width: 576px) {
     max-width: 350px;
@@ -37,7 +39,7 @@ export const BannerDescription = styled.p`
 export const BannerButton = styled.button`
   font-family: inherit;
   font-size: 18px;
-  font-weight: 500px;
+  font-weight: 500;
   border: 1px solid #0f0f0f;
   border-radius: 2px;
   color: #0f0f0f;

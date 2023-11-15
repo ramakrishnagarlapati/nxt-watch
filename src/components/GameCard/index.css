@@ -1,0 +1,12 @@
+.game-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+@media screen and (min-width: 576px) {
+  .game-card-link {
+    gap: 16px;
+  }
+}

@@ -9,11 +9,7 @@ import App from './App'
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <ThemeProvider>
-        <ActiveTabProvider>
-          <App />
-        </ActiveTabProvider>
-      </ThemeProvider>
+      <App />
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root'),
